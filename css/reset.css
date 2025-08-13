@@ -1,0 +1,103 @@
+/* General Reset and Styling */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+  font-family: system-ui;
+}
+
+html {
+  direction: ltr;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 0.4rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: white;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: #6618ed;
+  cursor: grab;
+}
+html::-webkit-scrollbar-thumb:active {
+  cursor: grabbing;
+}
+
+header,
+footer,
+section {
+  position: relative;
+  isolation: isolate;
+}
+
+select {
+  appearance: none;
+  background-color: transparent;
+}
+img,
+svg {
+  height: 100%;
+  width: 100%;
+  vertical-align: middle;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+ul {
+  list-style: none;
+}
+
+li {
+  display: inline-block;
+}
+
+a,
+button {
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+p {
+  /* max-width: 65ch;
+  text-wrap: balance; */
+}
+.container {
+  padding: 50px 15px;
+  margin: auto;
+  height: 100%;
+  /* overflow: hidden; */
+}
+.fullScreen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+/* ======CONTAINER MEDIA============= */
+@media (min-width: 768px) {
+  .container {
+    width: 720px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    width: 992px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    width: 1200px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    width: 1360px;
+  }
+}
