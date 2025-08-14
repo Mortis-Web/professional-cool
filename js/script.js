@@ -93,12 +93,15 @@ const showSideBar = () => {
   menuOverlayList.classList.add("show_menu");
   menuOverlay.style.zIndex = "1000";
   menuOverlay.style.opacity = "1";
+  document.body.classList.add('noscroll')
 };
 
 const hideSideBar = () => {
   menuOverlayList.classList.remove("show_menu");
   menuOverlay.style.zIndex = "-1000";
   menuOverlay.style.opacity = "0";
+  document.body.classList.remove('noscroll')
+
 };
 
 openMenuBtn.addEventListener("click", showSideBar);
