@@ -49,6 +49,11 @@ svg {
   -webkit-user-drag: none;
 }
 
+button:hover {
+  opacity: 0.8;
+  scale: 0.98;
+}
+
 ul {
   list-style: none;
 }
@@ -63,15 +68,10 @@ button {
   text-decoration: none;
   transition: all 0.3s ease;
 }
-p {
-  /* max-width: 65ch;
-  text-wrap: balance; */
-}
 .container {
   padding: 50px 15px;
   margin: auto;
   height: 100%;
-  /* overflow: hidden; */
 }
 .fullScreen {
   min-height: 100vh;

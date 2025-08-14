@@ -8,7 +8,7 @@ const activeLang = document.querySelector("#active_lang");
 
 // Scroll effect
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 100) {
+  if (window.scrollY > 10) {
     nav.classList.add("floating_nav");
     navContainer.style.padding = "10px 15px";
   } else {
@@ -112,3 +112,6 @@ menuOverlay.addEventListener("click", (e) => {
     hideSideBar();
   }
 });
+
+
+
