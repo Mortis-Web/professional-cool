@@ -1,5 +1,9 @@
 const swiper = new Swiper(".swiper", {
   loop: true,
+    navigation: {
+    nextEl: '.swiper-button-next-custom',
+    prevEl: '.swiper-button-prev-custom',
+  },
   keyboard: { enabled: true, onlyInViewport: true },
   pagination: { el: ".swiper-pagination", clickable: true },
   autoplay: { delay: 3000, disableOnInteraction: true },
@@ -14,4 +18,3 @@ const swiper = new Swiper(".swiper", {
   },
 });
 
-console.log("Swiper script is running");

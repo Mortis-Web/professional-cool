@@ -380,6 +380,12 @@ section.who_we {
   -o-border-radius: 1rem;
 }
 
+.read_more:hover {
+  opacity: 0.8;
+  scale: 0.98;
+}
+
+
 .who_we .container article:nth-child(1) {
   max-width: 500px;
 }
@@ -726,17 +732,21 @@ section.areas {
   min-width: 363px;
   height: 237px;
   mask-image: url("../media/map1.png");
+  -webkit-mask-image: url("../media/map1.png");
 }
 .map_mask.SAUDI {
   mask-image: url("../media/map2.png");
+  -webkit-mask-image: url("../media/map2.png");
   height: 316px;
   min-width: 365px;
 }
 .map_mask.UAE {
   mask-image: url("../media/map3.png");
+  -webkit-mask-image: url("../media/map3.png");
   height: 211px;
   min-width: 275px;
 }
+
 .arrow {
   width: 280px;
   object-fit: contain;
@@ -823,6 +833,7 @@ section.client_preview {
 }
 .swiper-pagination {
   bottom: 7.5% !important;
+  z-index: 0 !important;
 }
 .swiper-pagination-bullet {
   background-color: black !important;
@@ -832,6 +843,12 @@ section.client_preview {
   background: var(--main_bg) !important;
 }
 
+.swiper-button-prev-custom i,
+.swiper-button-next-custom i {
+  pointer-events: none;
+  cursor: pointer;
+}
+
 .review_arrow {
   position: absolute;
   display: block;
@@ -839,6 +856,7 @@ section.client_preview {
   margin-left: 240px;
   margin-right: 0;
   font-size: 1.75rem;
+  background:none;
 }
 .review_arrow:last-child {
   margin-right: 240px;
