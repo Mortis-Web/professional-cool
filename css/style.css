@@ -791,6 +791,7 @@ section.client_preview {
 .swiper {
   padding: 1rem !important;
   margin-top: 200px;
+  overflow: visible !important;
 }
 
 .swiper-wrapper {
@@ -820,7 +821,7 @@ section.client_preview {
   align-items: center;
 }
 
-.client{
+.client {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -837,7 +838,8 @@ section.client_preview {
   overflow: hidden;
   border-radius: 50%;
   border: 4px solid transparent;
-  background:linear-gradient(white,white) padding-box,var(--main_bg) border-box;
+  background: linear-gradient(white, white) padding-box,
+    var(--main_bg) border-box;
 }
 .client_img img {
   width: 100%;
@@ -846,7 +848,7 @@ section.client_preview {
   aspect-ratio: 1/1;
 }
 
-.dect_icon{
+.dect_icon {
   width: 100%;
   max-width: 400px;
   font-size: 3rem;
@@ -856,31 +858,30 @@ section.client_preview {
   max-height: fit-content;
   /* font-weight: bold; */
   isolation: isolate;
- img{
-width: 16px;
-height: 16px;
-position: absolute;
-top: -10px;
-left: 0;
-object-fit: contain;
+  img {
+    width: 16px;
+    height: 16px;
+    position: absolute;
+    top: -10px;
+    left: 0;
+    object-fit: contain;
   }
 }
-.client_message{
-  font-size:22px;
+.client_message {
+  font-size: 22px;
   text-wrap: balance;
   text-align: center;
   font-weight: 500;
   line-height: 1.1;
 }
-.colored_star{
+.colored_star {
   background: var(--main_bg);
   color: transparent;
   background-clip: text;
 }
-.gray_star{
+.gray_star {
   color: gray;
 }
-
 
 /* footer styles */
 
@@ -1032,41 +1033,55 @@ footer .container {
   }
   .hero_intro h1 {
     font-size: 2.5rem;
+    margin-bottom: 1rem;
   }
-  .hero_intro h3 {
-    font-size: 2rem;
-    /* margin-top: 1rem; */
+  .hero_intro {
+    justify-content: start;
+    padding-top: 80px;
   }
-  .floating_fieldset > .read_more {
-    grid-column: initial;
+    .floating_fieldset > .read_more {
+      grid-column: initial;
+    }
+
+    .services::before,
+    .services::after {
+      left: -1rem;
+    }
+    .areas .intro {
+      font-size: 3rem;
+      span {
+        font-size: 2rem;
+      }
+    }
   }
 
-  .services::before,
-  .services::after {
-    left: -1rem;
-  }
-  .areas .intro {
-    font-size: 3rem;
-    span {
+  @media (max-width: 480px) {
+    .map_mask {
+      scale: 0.7;
+    }
+    nav .logo {
+      max-width: 75px;
+    }
+    .hero_intro {
+      padding-top: 120px;
+    }
+    .hero_intro h1 {
       font-size: 2rem;
+      span {
+        font-size: 1.75rem;
+      }
+    }
+    .hero_intro h3 {
+      font-size: 1.5rem;
+    }
+    .intro {
+      font-size: 1.75rem;
+    }
+    .client_preview .intro {
+      font-size: 1.75rem;
+      p {
+        font-size: 1.25rem;
+      }
     }
   }
-}
 
-@media (max-width: 480px) {
-  .map_mask {
-    scale: 0.7;
-  }
-  nav .logo {
-    max-width: 75px;
-  }
-  .intro {
-    font-size: 1.75rem;
-  }
-  .client_preview .intro {
-    font-size: 1.75rem;
-    p {
-      font-size: 1.25rem;
-    }
-  }
-}
