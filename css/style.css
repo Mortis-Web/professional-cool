@@ -113,7 +113,7 @@ nav li {
 
   img {
     width: 1.25rem;
-    transition: var(--transition);
+    /* transition: var(--transition); */
   }
   span img {
     width: 1rem;
@@ -137,6 +137,7 @@ nav li:hover img:not(.langs img) {
   left: 0;
   top: 0;
   width: 100%;
+  display: none;
   height: 100%;
 }
 #side_menu[aria-hidden="true"] {
@@ -164,16 +165,32 @@ nav li:hover img:not(.langs img) {
   -webkit-overflow-scrolling: touch;
 
   .logo {
-    width: 100%;
-    padding: 1rem;
-    height: 160px;
+    width: 50%;
+    height: 140px;
     object-fit: contain;
-    background: linear-gradient(
-      90deg,
-      var(--secondary_color),
-      var(--primary_color)
-    );
   }
+}
+.side_menu_logo {
+  padding: 1rem;
+  position: relative;
+  isolation: isolate;
+}
+
+.side_menu_logo::after {
+  content: "";
+  width: 70%;
+  max-width: 350px;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--secondary_color),
+    var(--primary_color)
+  );
+  clip-path: polygon(0 0, 100% 0, 53% 100%, 0 100%);
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
 }
 
 .side_menu_links.show_menu {
@@ -207,8 +224,10 @@ nav li:hover img:not(.langs img) {
 }
 
 .side_menu_links ul {
+  padding-top: 2rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
 }
 
 .side_menu_links ul li {
@@ -216,11 +235,11 @@ nav li:hover img:not(.langs img) {
   text-transform: uppercase;
   font-weight: bold;
   font-size: 1.2rem;
+  padding-left: 1rem;
   color: black;
   position: relative;
   cursor: pointer;
   isolation: isolate;
-  padding: 1.5rem;
   transition: var(--transition);
   img {
     width: 20px;
@@ -228,14 +247,16 @@ nav li:hover img:not(.langs img) {
     transition: var(--transition);
   }
   &:hover {
-    color: white !important;
+    color: var(--secondary_color) !important;
+    /* background: var(--main_bg); */
     img {
-      filter: brightness(1) !important;
+      filter: brightness(0) saturate(100%) invert(74%) sepia(12%)
+        saturate(1837%) hue-rotate(153deg) brightness(99%) contrast(94%);
     }
   }
 }
 
-.side_menu_links li:after {
+/* .side_menu_links li:after {
   width: 0px;
   height: 100%;
   content: "";
@@ -251,10 +272,11 @@ nav li:hover img:not(.langs img) {
 .side_menu_links li:hover::after {
   width: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-}
-.side_menu_links li:not(:last-child) {
+} */
+
+/* .side_menu_links li:not(:last-child) {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-}
+} */
 
 .noscroll {
   overflow-y: hidden;
@@ -303,8 +325,8 @@ li#lang {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1rem;
-  padding: 0.5rem;
+  font-size: 0.95rem;
+  padding: 0.75rem;
   transition: var(--transition);
   width: 100%;
   &:hover {
@@ -382,7 +404,8 @@ section.who_we {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6rem;
+  row-gap: 6rem;
+  column-gap: 3rem;
 }
 
 .who_we .container article {
@@ -1012,6 +1035,7 @@ section.client_preview {
   margin-top: -100px;
   font-size: 0.85rem;
   font-weight: bold;
+  gap: 6px;
 }
 
 .client_img {
@@ -1051,7 +1075,7 @@ section.client_preview {
   }
 }
 .client_message {
-  font-size: 22px;
+  font-size: 20px;
   text-wrap: balance;
   text-align: center;
   font-weight: 500;
@@ -1115,14 +1139,14 @@ footer .container {
   ul {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1rem;
     font-size: 1.15rem;
   }
 }
 
 .links img {
   width: 20px;
-  transition: var(--transition);
+  /* transition: var(--transition); */
   object-fit: contain;
 }
 
@@ -1158,18 +1182,9 @@ footer .container {
     color: var(--primary_color);
     transition: var(--transition);
   }
-  &:hover {
-    background-color: var(--primary_color);
-    i {
-      color: white;
-    }
-  }
 }
 
 .links.countries {
-  ul {
-    gap: 1rem;
-  }
   li {
     flex-direction: column;
     display: flex;
@@ -1186,10 +1201,14 @@ footer .container {
       gap: 0.25rem;
       transition: var(--transition);
       color: white;
-    }
-    &:hover {
-      a {
+      &:hover {
         color: var(--secondary_color);
+        span {
+          background-color: var(--secondary_color);
+          i {
+            color: white;
+          }
+        }
       }
     }
   }
@@ -1228,7 +1247,7 @@ footer .container {
   nav .main_Links {
     display: none;
   }
-  #menu {
+  #menu ,#side_menu{
     display: block;
   }
   footer .container {
@@ -1271,6 +1290,15 @@ footer .container {
   }
 }
 @media (max-width: 640px) {
+  .side_menu_logo .logo{
+    height: 86px;
+  }
+  .side_menu_logo::after{
+    max-width: 265px;
+  }
+  .hero_overlay img {
+    object-position: 75%;
+  }
   .side_menu_links {
     width: 80%;
   }
@@ -1296,14 +1324,27 @@ footer .container {
       font-size: 2rem;
     }
   }
+  .areas_maps {
+    gap: 40px;
+  }
   .hero_intro {
     justify-content: center;
     font-size: 0.5rem;
     padding-bottom: 7.5rem;
   }
+  .who_we .container {
+    row-gap: 3rem;
+  }
 }
 
 @media (max-width: 480px) {
+  nav {
+    width: 95% !important;
+    min-width: 280px;
+  }
+  nav:not(.floating_nav) {
+    top: 20px;
+  }
   .map_mask {
     scale: 0.85;
   }
@@ -1311,16 +1352,18 @@ footer .container {
     max-width: 75px;
   }
   .hero_intro {
+    justify-content: end;
     padding-top: 120px;
-  }
-  .hero_intro h1 {
-    font-size: 2rem;
     span {
       font-size: 1.75rem;
     }
   }
+  .hero_intro h1 {
+    display: none;
+  }
   .hero_intro h3 {
     font-size: 1.5rem;
+    margin-bottom: 3rem;
   }
   .intro {
     font-size: 1.75rem;
@@ -1338,11 +1381,34 @@ footer .container {
     grid-template-columns: 100%;
     padding-inline: 1rem;
   }
+  .who_we {
+    padding-bottom: 0 !important;
+  }
   .who_we p {
     font-size: 1.25rem !important;
   }
-  footer ul li {
-    overflow-wrap: break-word;
-    word-break: break-word;
+  .who_we .container article:has(img) {
+    border-radius: 24px;
+  }
+  .services::before,
+  .services::after {
+    left: -4rem;
+    width: 140%;
+  }
+  .services::before {
+    filter: brightness(0.8999);
+  }
+  .areas .intro {
+    margin-top: 2rem;
+    font-size: 2rem;
+    margin-bottom: 0 !important;
+    span {
+      font-size: 1.75rem;
+    }
+
+    footer ul li {
+      overflow-wrap: break-word;
+      word-break: break-word;
+    }
   }
 }
