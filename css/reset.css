@@ -5,6 +5,7 @@
   box-sizing: border-box;
   border: none;
   outline: none;
+  overscroll-behavior: contain;
 }
 
 html {
@@ -12,19 +13,19 @@ html {
   scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 0.4rem;
 }
 
-html::-webkit-scrollbar-track {
-  background: white;
+::-webkit-scrollbar-track {
+  background: rgb(226, 225, 225);
 }
 
-html::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
   background: #6618ed;
   cursor: grab;
 }
-html::-webkit-scrollbar-thumb:active {
+::-webkit-scrollbar-thumb:active {
   cursor: grabbing;
 }
 
