@@ -10,10 +10,10 @@ const activeLang = document.querySelector("#active_lang");
 window.addEventListener("scroll", () => {
   if (window.scrollY > 100) {
     nav.classList.add("floating_nav");
-    navContainer.style.padding = "10px 15px";
+    navContainer.style.padding = "10px 1rem";
   } else {
     nav.classList.remove("floating_nav");
-    navContainer.style.padding = "25px 15px";
+    navContainer.style.padding = "1rem";
   }
 });
 

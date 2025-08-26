@@ -62,6 +62,9 @@ body {
 nav.floating_nav .logo {
   max-height: 60px;
 }
+nav.floating_nav .container {
+  width: 100%;
+}
 
 nav {
   margin-bottom: -200px;
@@ -865,8 +868,8 @@ section.experience {
 
 .experience .container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(265px, 1fr));
-  gap: 4rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
 }
 
 .statis {
@@ -876,10 +879,9 @@ section.experience {
   flex-direction: column;
   border-radius: 1rem;
   overflow: hidden;
-  background: linear-gradient(white, white) padding-box,
-    var(--main_bg) border-box;
+
   padding: 2rem;
-  box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25);
+  /* box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.25); */
   border: 1px solid transparent;
   color: black;
   -webkit-border-radius: 1rem;
@@ -888,13 +890,16 @@ section.experience {
   -o-border-radius: 1rem;
   h2,
   i {
-    color: #516fcd;
-    transition: var(--transition);
+    /* color: #516fcd; */
+    font-weight: 400;
   }
   &:hover {
     color: white;
+    background: linear-gradient(white, white) padding-box,
+      var(--main_bg) border-box;
     transition: var(--transition) !important;
     h2,
+    p,
     i {
       color: white;
     }
@@ -909,6 +914,7 @@ section.experience {
   z-index: -1;
   position: absolute;
   left: 0;
+  opacity: 0;
   top: 0;
   transition: var(--transition);
   transform: translateX(-100%);
@@ -918,6 +924,17 @@ section.experience {
   align-items: center;
   font-size: 2.7rem;
   gap: 0.5rem;
+  h2,span{
+  font-weight: 400;
+
+  }
+}
+
+
+.statis{
+  h2,p,h4{
+    transition: var(--transition);
+  }
 }
 
 .statis-details {
@@ -927,13 +944,15 @@ section.experience {
   gap: 0.75rem;
   font-size: 1.5rem;
   p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    color: rgb(70, 69, 69);
     font-weight: 400;
   }
 }
 
 .statis:hover::after {
   transform: translateX(0);
+  opacity: 1;
 }
 /* client reviews section styles */
 
@@ -1247,7 +1266,8 @@ footer .container {
   nav .main_Links {
     display: none;
   }
-  #menu ,#side_menu{
+  #menu,
+  #side_menu {
     display: block;
   }
   footer .container {
@@ -1290,10 +1310,10 @@ footer .container {
   }
 }
 @media (max-width: 640px) {
-  .side_menu_logo .logo{
+  .side_menu_logo .logo {
     height: 86px;
   }
-  .side_menu_logo::after{
+  .side_menu_logo::after {
     max-width: 265px;
   }
   .hero_overlay img {
