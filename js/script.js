@@ -8,7 +8,7 @@ const activeLang = document.querySelector("#active_lang");
 
 // Scroll effect
 window.addEventListener("scroll", () => {
-  if (window.scrollY > 10) {
+  if (window.scrollY > 100) {
     nav.classList.add("floating_nav");
     navContainer.style.padding = "10px 15px";
   } else {
@@ -33,34 +33,45 @@ langChangerList.forEach((option) => {
 document.addEventListener("click", () => {
   langChanger.classList.add("hide_lang_changer");
 });
-
 function animateCounter(el, target) {
-  let count = 0;
-  let speed = Math.ceil(target / 100); // speed control
-  let interval = setInterval(() => {
-    count += speed;
-    if (count >= target) {
-      count = target;
-      clearInterval(interval);
+  let duration = 1500; // total time (ms)
+  let start = 0;
+  let startTime = null;
+
+  function step(timestamp) {
+    if (!startTime) startTime = timestamp;
+    const progress = Math.min((timestamp - startTime) / duration, 1);
+
+    // interpolate value
+    const value = Math.floor(progress * target);
+    el.textContent = value;
+
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      el.textContent = target; // ensure exact
     }
-    el.textContent = (target > 100 ? "+" : "") + count;
-  }, 20);
+  }
+
+  requestAnimationFrame(step);
 }
-const counters = document.querySelectorAll(".statis h2");
+
+const counters = document.querySelectorAll("h2");
 const observer = new IntersectionObserver(
   (entries, obs) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
         const el = entry.target;
-        const target = parseInt(el.getAttribute("data-target"));
+        const target = parseInt(el.getAttribute("data-target"), 10);
         animateCounter(el, target);
-        obs.unobserve(el); // run only once
+        obs.unobserve(el);
       }
     });
   },
   { threshold: 0.5 }
 );
 
+counters.forEach((el) => observer.observe(el));
 counters.forEach((counter) => observer.observe(counter));
 
 const selectService = document.querySelector("#select_service");
@@ -89,21 +100,20 @@ const openMenuBtn = document.querySelector("#menu");
 const menuOverlay = document.querySelector("#side_menu");
 const menuOverlayList = document.querySelector("#side_menu article");
 const closeMenuBtn = document.querySelector("#close_menu");
+
 const showSideBar = () => {
+  menuOverlay.setAttribute("aria-hidden", "false"); // visible
   menuOverlayList.classList.add("show_menu");
-  menuOverlay.style.zIndex = "1000";
-  menuOverlay.style.opacity = "1";
-  document.body.classList.add('noscroll')
+  menuOverlayList.classList.remove("hide_menu");
+  document.body.classList.add("noscroll");
 };
 
 const hideSideBar = () => {
+  menuOverlay.setAttribute("aria-hidden", "true"); // hidden
+  menuOverlayList.classList.add("hide_menu");
   menuOverlayList.classList.remove("show_menu");
-  menuOverlay.style.zIndex = "-1000";
-  menuOverlay.style.opacity = "0";
-  document.body.classList.remove('noscroll')
-
+  document.body.classList.remove("noscroll");
 };
-
 openMenuBtn.addEventListener("click", showSideBar);
 closeMenuBtn.addEventListener("click", hideSideBar);
 document.addEventListener("keydown", (e) => {
@@ -115,6 +125,3 @@ menuOverlay.addEventListener("click", (e) => {
     hideSideBar();
   }
 });
-
-
-

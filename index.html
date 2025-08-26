@@ -25,7 +25,7 @@
     <title>Professional Cool</title>
   </head>
   <body>
-     <div id="side_menu" class="fullScreen">
+     <div id="side_menu" class="fullScreen" aria-hidden="true">
       <article class="side_menu_links hide_side_menu">
         <span id="close_menu"><i class="fa-solid fa-xmark"></i></span>
                 <img src="./media/footLogo.png" alt="logo" class="logo" />
@@ -33,19 +33,17 @@
             <li class="active">
               <img src="./media/WhiteHome.png" alt="homeIcon" /> home
             </li>
-            <li>
-              <img src="./media/aboutUsIcon.png" alt="homeIcon" /> About Us
-            </li>
+
             <li><img src="./media/car.png" alt="homeIcon" /> Our Services</li>
-            <li>
-              <img src="./media/bookNservice.png" alt="homeIcon" /> Book a
-              Service
-            </li>
             <li>
               <img src="./media/testimonial.png" alt="homeIcon" />
               Testimonials
             </li>
-            <li><img src="./media/contact.png" alt="homeIcon" /> Contact us</li>
+            <li>
+              <img src="./media/bookNservice.png" alt="homeIcon" /> Book a
+              Service
+            </li>
+
 
       </article>
     </div>
@@ -57,19 +55,17 @@
             <li class="active">
               <img src="./media/WhiteHome.png" alt="homeIcon" /> home
             </li>
-            <li>
-              <img src="./media/aboutUsIcon.png" alt="homeIcon" /> About Us
-            </li>
+
             <li><img src="./media/car.png" alt="homeIcon" /> Our Services</li>
-            <li>
-              <img src="./media/bookNservice.png" alt="homeIcon" /> Book a
-              Service
-            </li>
             <li>
               <img src="./media/testimonial.png" alt="homeIcon" />
               Testimonials
             </li>
-            <li><img src="./media/contact.png" alt="homeIcon" /> Contact us</li>
+            <li>
+              <img src="./media/bookNservice.png" alt="homeIcon" /> Book a
+              Service
+            </li>
+
           </span>
           <li id="lang">
             <div id="lang_changer" class="hide_lang_changer">
@@ -96,7 +92,7 @@
       <div class="container">
         <article class="hero_intro" data-aos="zoom-in" data-aos-delay="400">
           <h1>
-            Professional cool lls
+            Professional cool LLC
             <span> Your Comfort, Our Expertise </span>
           </h1>
           <h3>Book a Service</h3>
@@ -106,57 +102,108 @@
 
     <section class="who_we">
       <div class="container">
-        <form class="floating_fieldset" data-aos="fade-up">
-          <div class="input_holder">
-            <input type="text" name="name" placeholder="Your Name" />
-            <label for="name"
-              ><img src="./media/user.png" alt="userImg"
-            /></label>
-          </div>
-          <div class="input_holder">
-            <input type="email" name="email" placeholder="Your Email" /><label
-              for="email"
-              ><img src="./media/email.png" alt="emailImg"
-            /></label>
-          </div>
-          <div class="input_holder" id="select_service">
-            <div id="options" class="hide_lang_changer">
-              <span>Option One</span>
-              <span>Option Two</span>
-              <span>Option Three</span>
+       <form class="floating_fieldset" data-aos="fade-up">
+  <!-- Name -->
+  <div class="input_holder">
+    <input
+      type="text"
+      name="name"
+      id="name"
+      placeholder="Your Name"
+      autocomplete="name"
+      inputmode="text"
+      required
+    />
+    <label for="name">
+      <img src="./media/user.png" alt="userImg" />
+    </label>
+  </div>
 
-            </div>
-            <label for="select"
-              ><img src="./media/blackCar.png" alt="carImg"
-            /></label>
-            <span class="select_arrow"
-              ><img src="./media/arrowDown.png" alt="arrowDown"
-            /></span>
-            <input
-              name="select"
-              type="text"
-              placeholder="Types Of Service"
-              readonly
-            />
-          </div>
-          <div class="input_holder">
-            <label for="Location"
-              ><img src="./media/location.png" alt="locationImg"
-            /></label>
-            <input type="text" name="Location" placeholder="Location" />
-          </div>
-          <div class="input_holder">
-            <input type="date" name="date" / >
-            <label for="date"
-              ><img src="./media/calendar.png" alt="calenderImg"
-            /></label>
-          </div>
-          <div class="input_holder">
-            <label for="details"
-              ><img src="./media/file.png" alt="detailsImg"
-            /></label>
-            <input type="details" placeholder="Additional Details" />
-          </div>
+  <!-- Email -->
+  <div class="input_holder">
+    <input
+      type="email"
+      name="email"
+      id="email"
+      placeholder="Your Email"
+      autocomplete="email"
+      inputmode="email"
+      required
+    />
+    <label for="email">
+      <img src="./media/email.png" alt="emailImg" />
+    </label>
+  </div>
+
+  <!-- Custom Select -->
+  <div class="input_holder" id="select_service">
+    <div id="options" class="hide_lang_changer">
+      <span>Option One</span>
+      <span>Option Two</span>
+      <span>Option Three</span>
+    </div>
+    <label for="select">
+      <img src="./media/blackCar.png" alt="carImg" />
+    </label>
+    <span class="select_arrow">
+      <img src="./media/arrowDown.png" alt="arrowDown" />
+    </span>
+    <input
+      name="service"
+      id="select"
+      type="text"
+      placeholder="Types Of Service"
+      readonly
+      autocomplete="off"
+      inputmode="none"
+    />
+  </div>
+
+  <!-- Location -->
+  <div class="input_holder">
+    <label for="location">
+      <img src="./media/location.png" alt="locationImg" />
+    </label>
+    <input
+      type="text"
+      name="location"
+      id="location"
+      placeholder="Location"
+      autocomplete="street-address"
+      inputmode="text"
+    />
+  </div>
+
+  <!-- Date -->
+  <div class="input_holder">
+    <input
+      type="date"
+      name="date"
+      id="date"
+      autocomplete="off"
+      inputmode="numeric"
+    />
+    <label for="date">
+      <img src="./media/calendar.png" alt="calenderImg" />
+    </label>
+  </div>
+
+  <!-- Additional Details -->
+  <div class="input_holder">
+    <label for="details">
+      <img src="./media/file.png" alt="detailsImg" />
+    </label>
+    <input
+      type="text"
+      name="details"
+      id="details"
+      placeholder="Additional Details"
+      autocomplete="off"
+      inputmode="text"
+    />
+  </div>
+
+
           <button type="submit" class="read_more">
             <img src="./media/bookNservice.png" alt="bookNowImg" />BOOK NOW
           </button>
@@ -166,7 +213,7 @@
           <img src="./media/Rectangle 39384.png" alt="whoWeAreImg" />
         </article>
         <article data-aos="fade-up" data-aos-delay="300">
-          <h3>Who We Are</h3>
+          <!-- <h3>Who We Are</h3> -->
           <p>
             At Professional Cool LLC, we are dedicated to delivering
             high-quality air conditioning and refrigeration solutions for both
@@ -174,7 +221,7 @@
             systems, walk-in coolers, and maintenance services, we combine
             technical excellence with a customer-first approach...
           </p>
-          <button type="button" class="read_more">Read more</button>
+          <!-- <button type="button" class="read_more">Read more</button> -->
         </article>
       </div>
     </section>
@@ -309,7 +356,8 @@
       /></span>
       <span class="mask"></span>
       <div class="intro" data-aos="fade-up">
-        Areas we serve <span>Providing trusted services</span>
+        countries we operate in
+ <span>Providing trusted services</span>
       </div>
       <div class="areas_maps" data-aos="fade-up">
         <article>
@@ -330,22 +378,44 @@
       </div>
     </section>
     <section class="experience">
-      <div class="intro" data-aos="fade-up">Our Experience</div>
+      <!-- <div class="intro" data-aos="fade-up">Our Experience</div> -->
       <div class="container">
         <article class="statis" data-aos="fade-up">
-          <p>Projects Completed</p>
-          <h2 data-target="500">0</h2>
+
+         <span class="counter">
+          <!-- <i class="fa-solid fa-graduation-cap"></i> -->
+           <h2 data-target="8">0</h2></span>
+          <div class="statis-details">
+
+            <h4>Years Experience</h4>
+            <p>improving homes with expert craftsmanship for years</p>
+          </div>
         </article>
 
         <article class="statis" data-aos="fade-up" data-aos-delay="200">
-          <p>Clients Served</p>
-          <h2 data-target="300">0</h2>
+          <span class="counter">
+            <!-- <i class="fa-solid fa-chart-column"></i> -->
+            <h2 data-target="250">0</h2>
+          </span>
+          <div class="statis-details">
+
+            <h4>Projects Completed</h4>
+          <p>over 250 successful projects delivered with quality and care</p>
+          </div>
+        </article>
+        <article class="statis" data-aos="fade-up" data-aos-delay="300">
+
+          <span class="counter">
+            <!-- <i class="fa-solid fa-users"></i> -->
+            <h2 data-target="30">0</h2>
+          </span>
+          <div class="statis-details">
+
+            <h4>Skilled Tradespeople</h4>
+         <p>our team of 30 experts ensures top-quality results</p>
+          </div>
         </article>
 
-        <article class="statis" data-aos="fade-up" data-aos-delay="300">
-          <p>Countries Served</p>
-          <h2 data-target="3">0</h2>
-        </article>
       </div>
     </section>
     <section class="client_preview">
@@ -365,7 +435,7 @@
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -385,7 +455,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -404,7 +474,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -423,7 +493,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -442,7 +512,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -461,7 +531,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -480,7 +550,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -499,7 +569,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -518,7 +588,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -537,7 +607,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
             <div class="client">
 
               <span class="client_img">
-                <img src="./media/client.png" alt="clientImg">
+                <img src="./media/image.png" alt="clientImg">
               </span>
 
               <span class="client_name">Ahmed R., Dubai, UAE</span>
@@ -573,7 +643,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
         </article>
         <article class="footer_article">
           <div class="links">
-            <h3>helpful link</h3>
+            <!-- <h3>helpful link</h3> -->
             <ul>
               <li><img src="./media/WhiteHome.png" alt="homeIcon" /> home</li>
               <li>
@@ -593,10 +663,10 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
               </li>
             </ul>
           </div>
-          <div class="links">
-            <h3>Contact US</h3>
+          <div class="links countries">
+            <!-- <h3>Contact US</h3> -->
             <ul>
-              <li>
+              <!-- <li>
                 <span><i class="fa-solid fa-location-dot"></i></span> Riyadh ,
                 KSA
               </li>
@@ -613,7 +683,7 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
                 1800
               </li>
               <li>
-                <span><i class="fa-solid fa-envelope"></i></span>
+                <span><i class="fa-solid fa-phone-volume"></i></span>
                 info@Professionalcoollls.com
               </li>
               <li class="socials">
@@ -621,7 +691,27 @@ Professional Cool LLC responded quickly to our emergency and fixed our HVAC syst
                 <span data-aos="fade-up" data-aos-delay="200"><i class="fa-brands fa-instagram"></i></span>
                 <span data-aos="fade-up" data-aos-delay="300"><i class="fa-brands fa-linkedin-in"></i></span>
                 <span data-aos="fade-up" data-aos-delay="400"><i class="fa-brands fa-whatsapp"></i></span>
+              </li> -->
+              <li>
+                <h3>United States</h3>
+                <p>Main Street, Houston, Texas</p>
+<a  href="https://wa.me/18324567890">                <span><i class="fa-solid fa-phone-volume"></i></span>
++1 832 456 7890</a>
               </li>
+              <li>
+                <h3>Saudi Arabia</h3>
+                <p>King Fahd Road, Riyadh</p>
+<a  href="https://wa.me/966501234567">                <span><i class="fa-solid fa-phone-volume"></i></span>
++966 50 123 4567</a>
+              </li>
+
+              <li>
+                <h3>United Arab Emirates</h3>
+                <p>Sheikh Zayed Road, Dubai</p>
+<a  href="https://wa.me/971559876543">                <span><i class="fa-solid fa-phone-volume"></i></span>
++971 55 987 6543</a>
+              </li>
+
             </ul>
           </div>
         </article>

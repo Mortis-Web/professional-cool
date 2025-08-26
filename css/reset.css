@@ -39,6 +39,7 @@ select {
   appearance: none;
   background-color: transparent;
 }
+
 img,
 svg {
   height: 100%;
@@ -62,6 +63,7 @@ button {
   text-decoration: none;
   transition: all 0.3s ease;
 }
+
 .container {
   padding: 50px 15px;
   margin: auto;
