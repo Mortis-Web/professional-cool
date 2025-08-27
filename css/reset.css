@@ -66,7 +66,7 @@ button {
 }
 
 .container {
-  padding: 50px 15px;
+  padding: 30px 15px;
   margin: auto;
   height: 100%;
 }
@@ -83,7 +83,7 @@ button {
 
 @media (min-width: 1024px) {
   .container {
-    width: 992px;
+    width: 97%;
   }
 }
 
