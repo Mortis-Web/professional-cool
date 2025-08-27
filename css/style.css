@@ -684,7 +684,7 @@ section.services {
   padding: 1rem;
   font-size: 1.145rem;
   gap: 1rem;
-  border: 1px solid transparent;
+  /* border: 1px solid transparent; */
   border-radius: 1rem;
   /* text-transform: uppercase; */
   /* align-items: center; */
