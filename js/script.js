@@ -102,20 +102,26 @@ const menuOverlayList = document.querySelector("#side_menu article");
 const closeMenuBtn = document.querySelector("#close_menu");
 
 const showSideBar = () => {
-  menuOverlay.setAttribute("aria-hidden", "false"); // visible
+  menuOverlay.setAttribute("aria-hidden", "false");
   menuOverlayList.classList.add("show_menu");
   menuOverlayList.classList.remove("hide_menu");
-  document.body.classList.add("noscroll");
+  // document.body.classList.add("noscroll");
 };
-
 const hideSideBar = () => {
-  menuOverlay.setAttribute("aria-hidden", "true"); // hidden
+  menuOverlay.setAttribute("aria-hidden", "true");
+
   menuOverlayList.classList.add("hide_menu");
   menuOverlayList.classList.remove("show_menu");
-  document.body.classList.remove("noscroll");
+
+  menuOverlayList.addEventListener("transitionend", function handler() {
+    // document.body.classList.remove("noscroll");
+    menuOverlayList.removeEventListener("transitionend", handler);
+  });
 };
+
 openMenuBtn.addEventListener("click", showSideBar);
 closeMenuBtn.addEventListener("click", hideSideBar);
+
 document.addEventListener("keydown", (e) => {
   if (e.key === "Escape") hideSideBar();
 });
