@@ -10,7 +10,7 @@
 
 html {
   direction: ltr;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
 
 ::-webkit-scrollbar {
@@ -95,6 +95,6 @@ button {
 
 @media (min-width: 1440px) {
   .container {
-    width: 1360px;
+    width: 1340px;
   }
 }

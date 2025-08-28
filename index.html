@@ -340,7 +340,7 @@
 
     </div>
   </section>
-  <section class="client_preview">
+  <!-- <section class="client_preview">
     <span class="areas_overlay"><img src="./media/clients.png" alt="earthImg" /></span>
     <span class="mask"></span>
 
@@ -576,7 +576,7 @@
     </div>
 
 
-  </section>
+  </section> -->
   <footer>
     <div class="container">
       <article class="footer_article" data-aos="fade-up">
@@ -659,15 +659,33 @@
     </div>
   </footer>
 </body>
+  <!-- 1. Third-party libraries (that don’t depend on your code) -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.0.5/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- 2. Lenis (module must come before your script if you use it inside) -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.27/bundled/lenis.min.js"></script>
+<script>
+  const lenis = new Lenis({
+    duration: 1.5,   // close to native (default ~0.4–0.5)
+    smooth: true,
+    lerp: 0.5       // very small easing factor (0.05–0.1 is subtle)
+  });
+
+  function raf(time) {
+    lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+</script>
+<!-- 3. Your own scripts (that depend on libs being loaded) -->
 <script src="./js/swiper.js"></script>
 <script src="./js/script.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
+<!-- 4. Init AOS after everything -->
 <script>
   AOS.init({
     duration: 1000,
     once: false,
   });
 </script>
-
-</html>
