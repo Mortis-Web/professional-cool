@@ -33,6 +33,7 @@ footer,
 section {
   position: relative;
   isolation: isolate;
+  padding-block: 50px;
 }
 
 select {
